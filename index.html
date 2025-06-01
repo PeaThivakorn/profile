@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pae Thivakorn | Contact</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -13,21 +15,21 @@
     }
 
     body {
-      font-family: 'Sarabun', sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      overflow-x: hidden;
       padding: 20px;
+      position: relative;
     }
+
 
     .splash {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: #ffffff;
       display: flex;
       justify-content: center;
@@ -40,7 +42,7 @@
       font-size: 22px;
       text-align: center;
       padding: 20px;
-      color: #00796B;
+      color: #009688;
       animation: fadeIn 1.5s ease;
     }
 
@@ -49,6 +51,7 @@
         opacity: 0;
         transform: translateY(10px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -66,75 +69,94 @@
       background: #ffffff;
       width: 100%;
       max-width: 420px;
-      border-radius: 25px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      padding: 30px 20px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      padding: 35px 25px;
       text-align: center;
-      position: relative;
-      animation: fadeIn 0.8s ease 3.2s forwards;
+      animation: fadeInCard 1s ease 3.2s forwards;
       opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInCard {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .profile-img {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 6px solid #ffffff;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border: 5px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       margin-bottom: 15px;
       transition: transform 0.3s ease;
     }
 
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) rotate(-2deg);
     }
 
     h2 {
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 5px;
-      color: #333;
+      color: #2d2d2d;
     }
 
     .role {
       font-size: 15px;
-      color: #777;
+      color: #666;
     }
 
     .location {
       font-size: 14px;
-      color: #999;
+      color: #555;
       margin: 10px 0 20px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s ease;
     }
 
+    .location:hover {
+      color: #00796B;
+      text-decoration: none;
+      /* ย้ำอีกครั้งว่าไม่ต้องการ underline */
+    }
+
+
+
     .contact-list {
-      margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      background: #f9f9f9;
+      background: #f1f1f1;
       padding: 12px 18px;
-      border-radius: 15px;
+      border-radius: 18px;
       text-decoration: none;
       color: #333;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.25s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .contact-item:hover {
-      background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+      background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+      color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .contact-item i {
       font-size: 20px;
-      margin-right: 12px;
+      margin-right: 14px;
       width: 24px;
       text-align: center;
     }
@@ -144,37 +166,31 @@
       word-break: break-word;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (max-width: 480px) {
       .card {
-        padding: 25px 15px;
-      }
-
-      .contact-text {
-        font-size: 15px;
+        padding: 25px 18px;
       }
 
       .profile-img {
-        width: 90px;
-        height: 90px;
+        width: 95px;
+        height: 95px;
       }
 
       .splash h1 {
         font-size: 18px;
       }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .contact-text {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Splash Animation -->
@@ -185,9 +201,12 @@
   <!-- Profile Card -->
   <div class="card">
     <img src="image/profile.jpg" alt="Profile Image" class="profile-img" />
-    <h2>PaeThivakorn</h2>
+    <h2>Pae Thivakorn</h2>
     <div class="role">พนักงานขาย ตำแหน่งขายส่ง</div>
-    <div class="location"><i class="fas fa-map-marker-alt"></i> แอดไวซ์ จ.อุบลราชธานี สาขา U036 (ใกล้สี่แยกสามัคคี) ประเทศไทย</div>
+    <a href="https://www.advice.co.th/branch-u036/" class="location" target="_blank">
+      <i class="fas fa-map-marker-alt"></i> แอดไวซ์ จ.อุบลราชธานี สาขา U036 (ใกล้สี่แยกสามัคคี) ประเทศไทย
+    </a>
+
 
     <div class="contact-list">
       <a href="tel:0834340341" class="contact-item">
@@ -200,7 +219,7 @@
       </a>
       <a href="https://www.facebook.com/thivakorn39" class="contact-item" target="_blank">
         <i class="fab fa-facebook" style="color: #3b5998;"></i>
-        <span class="contact-text">Thivakorn Pea Saengsri </span>
+        <span class="contact-text">Thivakorn Pea Saengsri</span>
       </a>
       <a href="https://www.instagram.com/pae_thivakorn" class="contact-item" target="_blank">
         <i class="fab fa-instagram" style="color: #e1306c;"></i>
@@ -218,4 +237,5 @@
   </div>
 
 </body>
+
 </html>
